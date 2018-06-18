@@ -30,7 +30,9 @@ app.get('/contacts/:id', (req, res) => {
     let contact = contacts.users.find((user) => {
       return user.id === id;   
     });
-    res.send(contact);
+    res.render('contact-details', {
+        contact 
+    });
 });
 app.listen(8888, () => {
     console.log('Your express app is running at http://localhost:8888');
