@@ -1,9 +1,19 @@
 const express = require('express');
 const app = express();
 const contacts = require('./contacts');
+const expressHbs = require('express-handlebars');
+
+app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
+app.set('view engine', '.hbs');
+
+
+
 //Hone Page = show the user a welcome message
 app.get('/', (req, res) => {
-    res.send('HAAAAAAAY');
+    res.render('home', {
+        message: 'Hello Handlebars!'
+    });
+    // res.send('HAAAAAAAY');
 });
 // Contacts List Page = show the user all contacts
 app.get('/contacts', (req, res) => {
