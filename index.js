@@ -11,7 +11,8 @@ app.set('view engine', '.hbs');
 //Hone Page = show the user a welcome message
 app.get('/', (req, res) => {
     res.render('home', {
-        message: 'Hello Handlebars!'
+        message: 'Hello Handlebars!',
+        headerText: 'hewo handlebars'
     });
     // res.send('HAAAAAAAY');
 });
